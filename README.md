@@ -31,8 +31,12 @@ With only two or three small projects to show, my portfolio risked feeling thin.
 Given the time I invested, I'm very happy with the result.
  
 ## Reflection & Future Improvements
- 
-The design is closely tuned to the current amount of content. Expanding the content significantly would most likely break the notebook aesthetic, so a future redesign would need a layout system that scales more gracefully with additional projects.
+
+The biggest lesson from this project is that my design is tightly coupled to my content. I deliberately traded a scalable layout system for a bespoke, art-directed notebook aesthetic — the right call for a portfolio with only a handful of projects, but it means the current page can't simply absorb more content without losing its balance.
+
+On closer inspection, though, the limitation isn't the aesthetic itself but its single-page implementation. A notebook naturally affords growth: pages, tabs, an index. As my portfolio expands — which it will, since I'm actively looking for an internship — the plan is to lean further into the metaphor rather than abandon it: individual projects "turning the page" onto their own case-study spreads, with the homepage acting as the notebook's index.
+
+Working iteratively with Claude also sharpened my own design judgment. Because every generated variation forced an accept-or-reject decision, I had to articulate why an option did or didn't fit the notebook concept — which taught me more about typography, spacing and visual consistency than following a tutorial ever has.
  
 ## Mood Board
  
