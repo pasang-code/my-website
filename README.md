@@ -17,7 +17,7 @@ This site started as my final project for the *User Interfaces* course and was l
 - **Languages:** HTML, CSS, JavaScript
 - **Design tools:** Figma, Claude (Design)
 - **IDE:** Visual Studio Code
-- 
+  
 ## Design Approach
  
 The visual design builds on the principles I picked up in class — colour theory and the CRAP principles (Contrast, Repetition, Alignment, Proximity). To go a step further, I also read *Refactoring UI* and carefully studied a number of existing portfolio websites.
