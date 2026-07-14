@@ -1,8 +1,12 @@
 # Portfolio Website
  
 A mobile-friendly portfolio website with a personalised notebook aesthetic, built from scratch with HTML, CSS and JavaScript.
+
+[![Screenshot of the website](imgs/logo.png)](https://www.pasanggiatso.be/)
+
  
 **🔗 Live site: [pasanggiatso.be](https://www.pasanggiatso.be/)**
+
   
 ## About
  
