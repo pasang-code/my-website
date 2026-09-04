@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasang Giatso - Full-stack ontwikkelaar</title>
+  <meta name="description" content="Software engineering student op zoek naar een full-stack stage. Java, Spring Boot en React." />
+
+  <!-- lettertypes van Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- mijn eigen stijlen -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- bezoekersteller -->
+  <script data-goatcounter="https://pasang.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+  <!-- ============ NAVIGATIE ============ -->
+  <header class="nav">
+    <a href="#" class="nav__logo">Pasang Giatso</a>
+    <nav class="nav__links">
+      <a href="#work">Projecten</a>
+      <a href="#about">Over mij</a>
+      <a href="#contact">Contact</a>
+      <a href="Pasang_Giatso_CV.pdf" class="nav__cv" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__text">
+        <span class="badge">Op zoek naar een stageplek</span>
+        <h1>Full-stack ontwikkelaar die graag <span class="mark">designs tot leven brengt</span>.</h1>
+        <p>Ik ben Pasang Giatso en werk graag productief met mijn stack: Java, Spring Boot en React. Wat ik momenteel zoek? Een stage waar ik aan echte projecten kan meedraaien en bijleren.</p>
+        <div class="hero__meta">
+          <p class="hero__availability">
+            <span aria-hidden="true"></span>
+            Beschikbaar · 7 weken · 4/5e
+          </p>
+          <a href="Pasang_Giatso_CV.pdf" class="btn" download>Download mijn cv</a>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <img src="hero-photo.jpg" alt="Giatso Tenzi" />
+      </div>
+    </section>
+
+    <!-- ============ PROJECTEN ============ -->
+    <section id="work" class="section section--boven">
+      <header class="section__head">
+        <p class="section__eyebrow">
+          <span class="section__num">01</span>
+          <span class="section__kicker">Projecten</span>
+        </p>
+        <h2 class="section__title">Gemaakt met plezier</h2>
+      </header>
+
+      <!-- project 1: uitgelicht, met browservenster rond de screenshot -->
+      <div class="highlight highlight--groot">
+        <div class="highlight__text">
+          <h3>
+            <a class="highlight__titlelink highlight__titlelink--accent" href="https://github.com/pasang-code/supermarkt-webwinkel" target="_blank" rel="noopener">
+              <span>Freshly - Webwinkel</span>
+            </a>
+          </h3>
+          <p class="highlight__takeaway">Eerste volledige backend: van controllers tot een werkende winkelmand.</p>
+          <p>Een online supermarkt met een <strong>gelaagde Spring Boot-architectuur</strong>: MVC-controllers, een
+             JPA-datamodel en validatie. Ik ontwierp het zelf van datamodel tot werkende winkelmand —
+             mijn eerste echte backend-project.</p>
+          <div class="highlight__tagrow">
+            <span class="highlight__taglabel">Stack</span>
+            <ul class="tags">
+              <li>Java</li><li>Spring Boot</li><li>Spring MVC</li><li>Spring JPA</li>
+            </ul>
+          </div>
+          <div class="highlight__links">
+            <a class="highlight__live" href="https://grocery-delivery-webapp-spring-2.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+            <a class="highlight__ghlink" href="https://github.com/pasang-code/supermarkt-webwinkel" target="_blank" rel="noopener"><span class="icon icon-github" aria-hidden="true"></span>GitHub</a>
+          </div>
+        </div>
+        <div class="highlight__media">
+          <div class="browserframe">
+            <div class="browserframe__bar" aria-hidden="true">
+              <span class="browserframe__dots"><i></i><i></i><i></i></span>
+              <span class="browserframe__url">
+                <svg class="browserframe__lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+                <span class="browserframe__host">grocery-delivery-webapp-spring-2.onrender.com</span>
+              </span>
+            </div>
+            <a class="highlight__imglink highlight__imglink--app" href="https://grocery-delivery-webapp-spring-2.onrender.com/" target="_blank" rel="noopener" aria-label="Open Freshly webwinkel">
+              <img src="freshly-webwinkel.png" alt="Screenshot van de Freshly webwinkel" decoding="async" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- project 2 -->
+      <div class="highlight">
+        <div class="highlight__text">
+          <h3>
+            <a class="highlight__titlelink" href="https://github.com/pasang-code/deze-website" target="_blank" rel="noopener">
+              <span>Deze Website</span><span class="icon icon-github" aria-hidden="true"></span>
+            </a>
+          </h3>
+          <p class="highlight__takeaway">From-scratch, volledig responsive frontend als eindwerk.</p>
+          <p>Deze site bouwde ik volledig zelf met Javascript, CSS en HTML, als eindwerk voor
+             het vak User Interfaces. Hier begon <strong>responsive opmaak</strong> eindelijk echt te klikken, en
+             leerde ik om een design vanaf een leeg scherm helemaal op te bouwen.</p>
+          <div class="highlight__tagrow">
+            <span class="highlight__taglabel">Stack</span>
+            <ul class="tags">
+              <li>Javascript</li><li>CSS</li><li>HTML</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight__media">
+          <a class="highlight__imglink" href="https://github.com/pasang-code/deze-website" target="_blank" rel="noopener" aria-label="Open Deze Website op GitHub">
+            <img src="deze-website.webp" alt="Screenshot van deze website" decoding="async" />
+          </a>
+        </div>
+      </div>
+
+      <!-- project 3 -->
+      <div class="highlight">
+        <div class="highlight__text">
+          <h3>
+            <a class="highlight__titlelink" href="https://github.com/pasang-code/google-data-analyse" target="_blank" rel="noopener">
+              <span>Google Data-analyse</span><span class="icon icon-github" aria-hidden="true"></span>
+            </a>
+          </h3>
+          <p class="highlight__takeaway">Van ruwe data naar conclusies durven trekken.</p>
+          <p>Cursus databeheer en -analyse van Google. Hier ging <strong>data voor het eerst echt
+             leven</strong> — niet alleen verwerken en visualiseren, maar er ook zelf conclusies uit
+             durven trekken.</p>
+          <div class="highlight__tagrow">
+            <span class="highlight__taglabel">Stack</span>
+            <ul class="tags">
+              <li>Jupyter</li><li>SQL</li><li>Tableau</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight__media">
+          <a class="highlight__imglink highlight__imglink--rechts" href="https://github.com/pasang-code/google-data-analyse" target="_blank" rel="noopener" aria-label="Open Google Data-analyse op GitHub">
+            <img src="google-data-analyse.webp" alt="Visualisatie uit het Google Data-analyse project" decoding="async" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OVER MIJ ============ -->
+    <section id="about" class="section section--onder">
+      <header class="section__head">
+        <p class="section__eyebrow">
+          <span class="section__num">02</span>
+          <span class="section__kicker">Over mij</span>
+        </p>
+        <h2 class="section__title">De persoon achter de code</h2>
+      </header>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>Mijn weg naar development verliep niet rechtlijnig. Voordat ik met code aan de slag ging,
+             werkte ik als <strong>assistant store manager</strong>. Daar leerde ik rustig te blijven wanneer het
+             druk werd en te luisteren naar wat mensen werkelijk nodig hadden, iets wat ik nog steeds
+             met me meedraag.</p>
+          <p>Vandaag studeer ik <strong>graduaat Programmeren</strong> aan Thomas More. Wat me het meeste
+             voldoening geeft, is <strong>verzorgde code schrijven</strong> en iets bouwen dat prettig werkt voor
+             wie het gebruikt. Goede code en doordacht ontwerp horen voor mij onlosmakelijk bij elkaar.
+             Wil je meer weten? Bekijk dan gerust mijn cv.</p>
+          <a href="Pasang_Giatso_CV.pdf" class="btn about__cv" download>Download mijn cv</a>
+        </div>
+
+        <!-- mijn drie rollen, van vroeger naar nu -->
+        <ul class="roles">
+          <li class="role">
+            <span class="role__hook"><span class="role__icon icon-kelner" aria-hidden="true"></span></span>
+            <span class="role__name">Kelner</span>
+          </li>
+          <li class="role">
+            <span class="role__hook"><span class="role__icon icon-winkel" aria-hidden="true"></span></span>
+            <span class="role__name">Assistant store manager</span>
+          </li>
+          <li class="role role--active">
+            <span class="role__hook"><span class="role__icon icon-code" aria-hidden="true"></span></span>
+            <span class="role__name">Ontwikkelaar</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <header class="section__head">
+        <p class="section__eyebrow">
+          <span class="section__num">03</span>
+          <span class="section__kicker">Contact</span>
+        </p>
+        <h2 class="section__title">Even kennismaken?</h2>
+      </header>
+      <div class="contact__grid">
+        <form class="contact__form" id="contactForm" novalidate>
+          <!-- verborgen veld tegen spambots -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="text" name="name" placeholder="Je naam" required />
+          <input type="email" name="email" placeholder="jij@voorbeeld.com" required />
+          <textarea name="message" placeholder="Waar kan ik je mee helpen?" required></textarea>
+          <button type="submit" class="btn">Verstuur bericht</button>
+          <p class="contact__status" id="contactStatus" role="status" aria-live="polite" hidden></p>
+        </form>
+        <div class="contact__side">
+          <p class="contact__side-label">Of bereik me direct:</p>
+          <a class="contact__direct contact__direct--linkedin" href="https://www.linkedin.com/in/pasanggiatso" target="_blank" rel="noopener">
+            <span class="icon icon-linkedin" aria-hidden="true"></span> LinkedIn
+          </a>
+          <a class="contact__direct contact__direct--github" href="https://github.com/pasang-code" target="_blank" rel="noopener">
+            <span class="icon icon-github" aria-hidden="true"></span> GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <span class="footer__sign">Giatso Tenzi</span>
+    <span class="footer__copy">© <span id="year"></span> Giatso Tenzi</span>
+  </footer>
+
+  <!-- mijn JavaScript, onderaan zodat de HTML er al staat -->
+  <script src="script.js"></script>
+</body>
+</html>

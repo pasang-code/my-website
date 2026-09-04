@@ -1,0 +1,599 @@
+/* Portfolio Pasang Giatso
+   1 variabelen  2 basis  3 nav  4 knoppen  5 hero  6 secties
+   7 projecten  8 over mij  9 contact  10 footer  11 iconen
+   12 animaties  13 responsive  14 dark mode */
+
+/* ---------- 1. variabelen ---------- */
+:root {
+  --bg: #fff;
+  --surface: #f5f3ee;          /* warme achtergrond */
+  --card: #fff;                /* witte kaart erbovenop */
+  --text: #1c1b19;
+  --text-muted: #423f39;
+  --text-faint: #8b897f;
+  --border: rgba(0, 0, 0, .1);
+  --border-strong: rgba(0, 0, 0, .22);
+  --accent: #f5a623;
+  --accent-strong: #e8920c;
+  --accent-bg: #fdf0d9;
+  --accent-text: #9a5b00;
+  --maxw: 1040px;
+  --font: 'Hanken Grotesk', system-ui, sans-serif;
+  --titel: 'Klee One', 'Hanken Grotesk', system-ui, sans-serif;
+  --schaduw-kaart: 0 1px 2px rgba(40, 28, 8, .06), 0 12px 22px -6px rgba(40, 28, 8, .11), 0 40px 70px -30px rgba(40, 28, 8, .16);
+  --veer: cubic-bezier(.2, .7, .3, 1);
+}
+
+/* ---------- 2. basis ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--surface);
+  scroll-behavior: smooth;
+  cursor: url("img/krijt-cursor.svg") 10 25, auto;   /* stukje krijt */
+}
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-weight: 600; line-height: 1.2; letter-spacing: -.02em; }
+a { color: inherit; }
+a:hover { color: var(--accent-strong); }
+main { max-width: var(--maxw); margin: 0 auto; padding: 0 48px; }
+
+/* ---------- 3. nav ---------- */
+.nav {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 22px 48px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo { font-size: 19px; font-weight: 700; text-decoration: none; }
+.nav__links { display: flex; gap: 20px; font-size: 13px; }
+.nav__links a { position: relative; color: var(--text-muted); text-decoration: none; }
+.nav__links a:hover { color: var(--text); }
+/* streepje dat vanaf links uitschuift */
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s;
+}
+.nav__links a:hover::after { transform: scaleX(1); }
+.nav__cv { color: var(--text) !important; font-weight: 500; }
+
+/* ---------- 4. knoppen ---------- */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.btn:hover { background: var(--accent-strong); color: #fff; }
+.btn:active { transform: scale(.98); }
+
+/* ---------- 5. hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 56px;
+  padding: 44px 84px 48px 56px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(40, 28, 8, .05), 0 14px 36px -10px rgba(40, 28, 8, .12);
+  animation: opkomen .55s var(--veer) .1s backwards;
+}
+.hero h1 {
+  font-family: var(--titel);
+  font-size: clamp(34px, 6.4vw, 54px);
+  line-height: 1.04;
+  max-width: 16ch;
+  margin-bottom: 18px;
+}
+.hero p { font-size: 17px; line-height: 1.75; color: var(--text-muted); max-width: 54ch; }
+.mark { font-weight: 600; color: var(--accent-strong); }
+
+.badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-text);
+  background: var(--accent-bg);
+}
+
+.hero__meta { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+.hero__meta .btn { padding: 9px 18px; font-size: 13px; }
+.hero__availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* de foto ligt als een afdruk op de kaart: witte rand, dikker onderaan, scheef */
+.hero__photo { display: flex; margin-left: -8px; }
+.hero__photo img {
+  width: 194px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center 12%;
+  background: #fff;
+  border: solid #fff;
+  border-width: 6px 6px 20px;
+  border-radius: 2px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+  filter: contrast(1.02) saturate(1.03);
+  transform: rotate(-4deg);
+  transition: transform .6s cubic-bezier(.1, .8, .5, .8);
+  animation: foto-neerleggen .85s var(--veer) .78s backwards;
+}
+.hero__photo img:hover { transform: rotate(4deg); }
+
+/* ---------- 6. secties ---------- */
+.section {
+  margin-bottom: 56px;
+  padding: 44px 48px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--schaduw-kaart);
+}
+
+/* projecten + over mij vormen samen één lange kaart */
+.section--boven {
+  margin-bottom: 0;
+  padding-bottom: 64px;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 5px rgba(40, 28, 8, .03), 0 1px 2px rgba(40, 28, 8, .05);
+}
+.section--onder {
+  position: relative;
+  padding-top: 64px;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+}
+.section--onder::before {   /* dun lijntje op de naad */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--border) 65%, transparent);
+}
+
+.section__head { margin-bottom: 28px; }
+#work .section__head { margin-bottom: 12px; }
+#about .section__head { margin-bottom: 60px; }
+.section__eyebrow { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.section__num { font-size: 13px; font-weight: 600; letter-spacing: .16em; color: var(--text-faint); }
+.section__kicker { font-size: clamp(16px, 1.8vw, 19px); font-weight: 600; color: var(--accent-strong); }
+.section__title {
+  font-family: var(--titel);
+  font-size: clamp(40px, 5.6vw, 52px);
+  line-height: 1.18;
+  letter-spacing: -.005em;
+}
+
+/* ---------- 7. projecten ---------- */
+.highlight {
+  display: grid;
+  grid-template-columns: 340px 1fr;   /* afbeelding links, tekst rechts */
+  gap: 36px;
+  padding: 40px 0;
+}
+.highlight__media { order: -1; display: flex; }
+.highlight__text { max-width: 47ch; align-self: center; justify-self: end; }
+.highlight:not(.highlight--groot) + .highlight { padding-top: 8px; }
+
+/* project 1 krijgt een grotere afbeelding en een lijn eronder */
+.highlight--groot {
+  grid-template-columns: 440px 1fr;
+  gap: 72px;
+  padding: 0 0 72px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.highlight--groot .highlight__media { margin-top: 6px; }
+.highlight--groot .highlight__text { align-self: start; justify-self: auto; }
+
+.highlight__text h3 { font-size: 27px; font-weight: 700; line-height: 1.32; margin-bottom: 10px; }
+.highlight__text p { font-size: 16px; color: var(--text-muted); margin-bottom: 14px; text-wrap: pretty; }
+/* de belangrijkste les uit het project, met een pijltje ervoor */
+.highlight__takeaway {
+  display: flex;
+  gap: 9px;
+  max-width: 46ch;
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.highlight__takeaway::before { content: "\2192"; color: var(--accent-strong); font-weight: 700; }
+/* markeerstift achter dikgedrukte woorden */
+.highlight__text strong, .about__text strong {
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: inset 0 -.42em 0 var(--accent-bg);
+}
+
+.highlight__titlelink { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.highlight__titlelink--accent, .highlight__titlelink--accent:hover { color: var(--accent-strong); }
+/* de titel wipt op bij hover, met een klein veereffect */
+.highlight__titlelink span { display: inline-block; padding: 0 1px; transition: transform .5s var(--veer); }
+.highlight__titlelink:hover span:not(.icon) { transform: translateY(-3px); }
+/* bij project 1 veegt de markeerstift onder de titel weg */
+.highlight--groot .highlight__titlelink span {
+  padding: 0 3px;
+  background: linear-gradient(transparent 38%, #fdebcf 38% 96%, transparent 96%) left center / 100% 100% no-repeat;
+  transition: background-size .5s cubic-bezier(.45, .05, .3, 1), transform .5s var(--veer);
+}
+.highlight--groot .highlight__titlelink:hover span { background-size: 0 100%; }
+
+.highlight__tagrow { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px; }
+.highlight__taglabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.tags { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; }
+.tags li { padding: 6px 14px; font-size: 13px; font-weight: 500; color: var(--text-muted); background: var(--surface); }
+
+.highlight__links { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+.highlight__live, .highlight__ghlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap .18s, color .15s, background .18s, border-color .18s;
+}
+.highlight__live { color: var(--accent-strong); }
+.highlight__live::after { content: "\2192"; }
+.highlight__live:hover { gap: 9px; background: var(--accent-bg); border-color: var(--accent); color: var(--accent-strong); }
+.highlight__ghlink { font-weight: 500; color: var(--text-faint); }
+.highlight__ghlink:hover { color: var(--text-muted); border-color: var(--border-strong); }
+
+/* afbeeldingen van project 2 en 3: witte fotorand, scheef, rechten bij hover */
+.highlight__media img {
+  display: block;
+  width: 340px;
+  height: 218px;
+  object-fit: cover;
+  background: #fff;
+  border: solid #fff;
+  border-width: 8px 8px 26px;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 5px rgba(0, 0, 0, .06), 0 18px 34px -16px rgba(40, 28, 8, .3);
+  transition: transform .55s cubic-bezier(.22, .61, .36, 1);
+}
+.highlight__imglink {
+  display: block;
+  line-height: 0;
+  transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s;
+}
+.highlight__imglink:active { transform: scale(.985); }
+.highlight__imglink:active img { transform: scale(1.02); }
+.highlight:not(.highlight--groot) .highlight__imglink { transform: rotate(-2.6deg); }
+.highlight:not(.highlight--groot) .highlight__imglink:hover { transform: rotate(1.5deg); }
+/* project 3 kantelt de andere kant op, voor wat ritme in de pagina */
+.highlight__imglink--rechts { transform: rotate(2.4deg); }
+.highlight:not(.highlight--groot) .highlight__imglink--rechts { transform: rotate(2.4deg); }
+.highlight:not(.highlight--groot) .highlight__imglink--rechts:hover { transform: rotate(-1.6deg); }
+
+/* browservenster rond de screenshot van project 1 */
+.browserframe {
+  width: 440px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 22px 42px -20px rgba(40, 28, 8, .34);
+}
+.browserframe__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+  padding: 0 14px;
+  background: #efe9dd;
+  border-bottom: 1px solid var(--border);
+}
+.browserframe__dots { display: inline-flex; gap: 6px; }
+.browserframe__dots i { width: 10px; height: 10px; border-radius: 50%; }
+.browserframe__dots i:nth-child(1) { background: #e26d5a; }
+.browserframe__dots i:nth-child(2) { background: #e6b03a; }
+.browserframe__dots i:nth-child(3) { background: #58b25b; }
+.browserframe__url {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.browserframe__lock { width: 11px; height: 11px; fill: none; stroke: #6f9a6f; stroke-width: 2; }
+.browserframe__host { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* de screenshot vult het venster; bij hover komt hij naar voren en zoomt in
+   op de slogan linksboven */
+.highlight--groot .highlight__media img {
+  width: 100%;
+  height: 264px;
+  object-position: left top;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  filter: saturate(1.08) contrast(1.03);
+  transform-origin: 6% 8%;
+}
+.highlight__imglink--app:hover { transform: translateY(-2px) scale(1.015); box-shadow: 0 14px 30px -14px rgba(40, 28, 8, .42); }
+.highlight__imglink--app:hover img { transform: scale(1.3); }
+
+/* ---------- 8. over mij ---------- */
+.about__grid { display: grid; grid-template-columns: 1fr 200px; gap: 104px; align-items: start; }
+.about__text p { font-size: 17px; line-height: 2.05; color: var(--text-muted); margin-bottom: 28px; }
+.about__cv { margin-top: 12px; }
+
+/* de rollen staan onder elkaar, verbonden door één verticale lijn */
+.roles { position: relative; display: flex; flex-direction: column; gap: 28px; list-style: none; }
+.roles::before {
+  content: "";
+  position: absolute;
+  left: 18px; top: 23px; bottom: 23px;
+  width: 2px;
+  background: var(--border-strong);
+}
+.role { position: relative; display: flex; align-items: center; gap: 12px; }
+.role__hook { display: flex; justify-content: center; width: 38px; flex-shrink: 0; }
+.role__icon { width: 30px; height: 30px; }
+.role__name { font-size: 14px; font-weight: 500; color: var(--accent-text); }
+.role--active .role__icon { width: 34px; height: 34px; }
+.role--active .role__name {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text);
+}
+
+/* ---------- 9. contact ---------- */
+.contact__grid { display: grid; grid-template-columns: 1fr 200px; gap: 56px; align-items: start; }
+.contact__form { display: flex; flex-direction: column; gap: 16px; }
+.contact__form input, .contact__form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.contact__form input:focus, .contact__form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+.contact__form textarea { min-height: 110px; resize: vertical; }
+.contact__form .btn { align-self: flex-start; }
+
+/* melding na het versturen: groen bij succes, rood bij een fout */
+.contact__status { margin-top: 4px; padding: 11px 14px; font-size: 14px; border-radius: 10px; }
+.contact__status--ok { color: hsl(150 55% 24%); background: hsl(150 55% 94%); border: 1px solid hsl(150 45% 78%); }
+.contact__status--err { color: hsl(8 65% 38%); background: hsl(8 80% 96%); border: 1px solid hsl(8 70% 84%); }
+
+.contact__side-label {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.contact__direct {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.contact__direct--linkedin { color: #0a66c2; }
+.contact__direct--linkedin:hover { color: #084d92; }
+.contact__direct--github { color: #181717; }
+.contact__direct--github:hover { color: #000; }
+
+/* ---------- 10. footer ---------- */
+.footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 48px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+.footer__sign { align-self: flex-start; font-family: var(--titel); font-size: 26px; line-height: 1; color: var(--text); }
+
+/* ---------- 11. iconen ---------- */
+.icon, .role__icon, .hero__availability span {
+  display: block;
+  flex-shrink: 0;
+  background: center / contain no-repeat;
+}
+.hero__availability span { width: 16px; height: 16px; background-image: url("img/kalender.svg"); }
+.icon-kelner { background-image: url("img/kelner.svg"); }
+.icon-winkel { background-image: url("img/winkel.svg"); }
+.icon-code { background-image: url("img/code.svg"); }
+.icon-github { background-image: url("img/github.svg"); }
+.icon-linkedin { background-image: url("img/linkedin.svg"); }
+.contact__direct .icon { width: 18px; height: 18px; }
+.contact__direct--github .icon { background-image: url("img/github-zwart.svg"); }
+.highlight__ghlink .icon { width: 14px; height: 14px; opacity: .5; transition: opacity .15s; }
+.highlight__ghlink:hover .icon { opacity: .75; }
+/* het icoontje naast de titel schuift mee naar rechts */
+.highlight__titlelink .icon {
+  width: 23px;
+  height: 23px;
+  opacity: .55;
+  transform: translateY(1px);
+  transition: opacity .15s, transform .18s;
+}
+.highlight__titlelink:hover .icon { opacity: 1; transform: translate(3px, 1px); }
+
+/* ---------- 12. animaties ---------- */
+@keyframes opkomen {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes foto-neerleggen {
+  from { opacity: 0; transform: rotate(-8deg) translateY(-14px); }
+  55% { opacity: 1; }
+  to { opacity: 1; transform: rotate(-4deg); }
+}
+@keyframes uitzoomen {
+  from { transform: scale(1.11); }
+  to { transform: scale(1); }
+}
+@keyframes op-zijn-plek {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes op-zijn-plek-scheef {
+  from { opacity: 0; transform: rotate(1.6deg) translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* de hero speelt zijn intro af zodra de pagina laadt: eerst de tekstregels
+   één na één, dan valt de foto erbij */
+.hero__text > * { animation: opkomen .72s var(--veer) backwards; }
+.hero__text .badge { animation-delay: .56s; }
+.hero__text h1 { animation-delay: .7s; }
+.hero__text > p { animation-delay: .86s; }
+.hero__text .hero__meta { animation-delay: 1.02s; }
+
+/* de secties verschijnen bij het scrollen: script.js zet .is-visible erop */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--veer), transform .55s var(--veer); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* binnen een sectie komen de onderdelen kort na elkaar in beeld */
+.reveal .section__head,
+.reveal .highlight,
+.reveal .about__grid,
+.reveal .contact__grid {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s var(--veer), transform .55s var(--veer);
+}
+.reveal.is-visible .section__head { opacity: 1; transform: none; transition-delay: .05s; }
+.reveal.is-visible .highlight:nth-child(2),
+.reveal.is-visible .about__grid,
+.reveal.is-visible .contact__grid { opacity: 1; transform: none; transition-delay: .18s; }
+.reveal.is-visible .highlight:nth-child(3) { opacity: 1; transform: none; transition-delay: .34s; }
+.reveal.is-visible .highlight:nth-child(4) { opacity: 1; transform: none; transition-delay: .5s; }
+
+/* de projectfoto's kantelen mee op hun plek */
+.reveal .highlight__media { opacity: 0; }
+.reveal.is-visible .highlight__media { animation: op-zijn-plek .7s var(--veer) both; }
+.reveal.is-visible .highlight:not(.highlight--groot) .highlight__media { animation-name: op-zijn-plek-scheef; }
+.reveal.is-visible .highlight:nth-child(3) .highlight__media { animation-delay: .34s; }
+.reveal.is-visible .highlight:nth-child(4) .highlight__media { animation-delay: .5s; }
+/* de screenshot van project 1 zoomt één keer uit */
+.reveal.is-visible .highlight__imglink--app img { animation: uitzoomen .9s var(--veer) .35s backwards; }
+
+/* ---------- 13. responsive ---------- */
+@media (max-width: 860px) {
+  main { padding: 0 32px; }
+
+  .hero { grid-template-columns: 1fr; gap: 28px; padding: 32px 40px 40px; }
+  .hero__photo { order: -1; }
+  .hero h1, .hero p { max-width: none; }
+  .hero__photo img { width: 150px; height: 190px; }
+
+  .highlight, .highlight--groot { grid-template-columns: 1fr; gap: 22px; padding: 32px 0; }
+  .highlight--groot { padding: 0 0 44px; }
+  .highlight__text { max-width: none; justify-self: auto; }
+  .highlight__media img, .highlight--groot .highlight__media img { width: 100%; height: auto; aspect-ratio: 16 / 10; }
+  .browserframe { width: 100%; }
+
+  .about__grid, .contact__grid { grid-template-columns: 1fr; gap: 36px; }
+  .roles { flex-direction: row; flex-wrap: wrap; gap: 18px 28px; }
+  .roles::before { display: none; }
+}
+
+@media (max-width: 640px) {
+  main { padding: 0 18px; }
+  .nav { flex-wrap: wrap; gap: 10px 18px; padding: 18px 18px 28px; }
+  .nav__links { flex-wrap: wrap; gap: 14px; }
+  .section, .hero { padding: 24px; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(26px, 7.5vw, 34px); }
+  .section__title { font-size: clamp(28px, 7vw, 36px); }
+  .hero__photo img { width: 120px; height: 152px; }
+  .hero__meta { flex-wrap: wrap; gap: 12px 16px; }
+}
+
+@media (max-width: 380px) {
+  main, .nav, .footer { padding-left: 14px; padding-right: 14px; }
+  .section, .hero { padding: 20px; }
+  .hero__meta { flex-direction: column; align-items: flex-start; }
+  .hero__availability { white-space: normal; }
+}
+
+/* ---------- 14. dark mode: alleen de kleuren wijzigen ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181715;
+    --surface: #232220;
+    --card: #2b2825;
+    --text: #f0eee9;
+    --text-muted: #b3b0a8;
+    --border: rgba(255, 255, 255, .12);
+    --border-strong: rgba(255, 255, 255, .25);
+    --accent-bg: #3a2a0d;
+    --accent-text: #f0c071;
+  }
+}
+
+/* wie liever geen beweging ziet, krijgt de pagina meteen stil */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+  .reveal .highlight__media { opacity: 1; }
+}
